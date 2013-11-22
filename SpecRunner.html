@@ -1,0 +1,82 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+
+    <link rel="shortcut icon" type="image/png" href="css/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/jasmine/jasmine.css">
+    <script type="text/javascript" src="js/lib/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="js/lib/jasmine/jasmine-html.js"></script>
+    <!--<script type="text/javascript" src="Scripts/sinon-1.7.3.js"></script>-->ß
+    
+    <!--App Libraries -->
+    <script type="text/javascript" src="js/lib/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore.js"></script>
+    <script type="text/javascript" src="js/lib/backbone.js"></script>
+
+    <!-- START Global Pointers -->
+    <!-- Add these here so that we can ensure that they are defined before everything else -->
+    <script type="text/javascript">
+        window.app = {};
+        app.controllers = {};
+        app.models = {};
+        app.views = {};
+    </script>
+    <!-- END Global Pointers -->
+
+    <!-- include source files here... -->
+    <!--<script type="text/javascript" src="/Scripts/jasmine-samples/SpecHelper.js"></script>
+    <script type="text/javascript" src="/Scripts/jasmine-samples/PlayerSpec.js"></script>-->
+
+    <!-- CompositeModel: source files -->
+    <script type="text/javascript" src="js/CompositeModel.js"></script>
+    <script type="text/javascript" src="js/Automobile.js"></script>
+
+    <!-- include spec files here... -->
+    <!--<script type="text/javascript" src="/Scripts/jasmine-samples/Player.js"></script>
+    <script type="text/javascript" src="/Scripts/jasmine-samples/Song.js"></script>-->
+
+    <!--App init-->
+    <script type="text/javascript">
+        
+    </script>
+
+    <!-- CompositeModel: spec files -->
+    <script type="text/javascript" src="js/Specs/CompositeModel.spec.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            var jasmineEnv = jasmine.getEnv();
+            jasmineEnv.updateInterval = 1000;
+
+            var htmlReporter = new jasmine.HtmlReporter();
+
+            jasmineEnv.addReporter(htmlReporter);
+
+            jasmineEnv.specFilter = function (spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            var currentWindowOnload = window.onload;
+
+            window.onload = function () {
+                if (currentWindowOnload) {
+                    currentWindowOnload();
+                }
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+
+        })();
+    </script>
+
+</head>
+
+<body>
+</body>
+</html>
